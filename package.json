@@ -1,0 +1,30 @@
+{
+  "name": "rune-site",
+  "version": "0.0.1",
+  "description": "Frontend website for the Rune API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rune-catalog/Rune.Site.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rune-catalog/Rune.Site/issues"
+  },
+  "homepage": "https://github.com/rune-catalog/Rune.Site#readme",
+  "devDependencies": {
+    "jspm": "^0.16.31"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "app"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  }
+}
