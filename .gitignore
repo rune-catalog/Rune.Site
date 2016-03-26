@@ -1,2 +1,6 @@
 node_modules/
-app/jspm_packages/
+jspm_packages/
+*.swp
+app/**/*.js
+app/**/*.js.map
+typings/
