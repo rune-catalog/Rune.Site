@@ -11,6 +11,7 @@ export class RuneToolbarComponent {
   constructor(private authService: AuthService) { }
 
   authenticate(): void {
-    this.authService.auth('sam', 'Password1$');
+    this.authService.auth('sam', 'Password1$')
+      .subscribe(token => console.log('TOKEN!', token));
   }
 }

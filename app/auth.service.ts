@@ -1,6 +1,8 @@
 import { Injectable } from 'angular2/core';
-import { Http, HTTP_PROVIDERS } from 'angular2/http';
+import { Http, Request, HTTP_PROVIDERS, RequestOptions, Headers } from 'angular2/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 interface IAuthToken {
   token: string;
@@ -8,17 +10,16 @@ interface IAuthToken {
 
 @Injectable()
 export class AuthService {
-  token: IAuthToken;
-
   constructor(private http: Http) { }
 
-  auth(username: string, password: string): void {
+  auth(username: string, password: string): Observable<string> {
+    let headers = new Headers();
+    headers.set('Content-Type', 'application/json');
+    let opts = new RequestOptions({ headers: headers });
+
     let body = JSON.stringify({ username: username, password: password });
-    console.log(body);
-    this.http.post('http://localhost:8080/auth', body)
+    return this.http.post('http://localhost:8080/auth', body, opts)
       .map(res => res.json())
-      .subscribe(res => {
-        this.token = res.token;
-      });
+      .map(json => json.token);
   }
 }
