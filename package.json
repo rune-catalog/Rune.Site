@@ -4,6 +4,12 @@
   "description": "Frontend website for the Rune API",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\"",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,21 +23,17 @@
   },
   "homepage": "https://github.com/rune-catalog/Rune.Site#readme",
   "devDependencies": {
-    "jspm": "^0.16.31"
-  },
-  "jspm": {
-    "dependencies": {
-      "angular2": "npm:angular2@^2.0.0-beta.12",
-      "reflect-metadata": "npm:reflect-metadata@^0.1.3",
-      "zone.js": "npm:zone.js@^0.6.6"
-    },
-    "devDependencies": {}
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.1.0",
+    "typescript": "^1.8.9",
+    "typings": "^0.7.9"
   },
   "dependencies": {
     "angular2": "^2.0.0-beta.12",
     "es6-shim": "^0.35.0",
     "reflect-metadata": "^0.1.2",
     "rxjs": "^5.0.0-beta.2",
+    "systemjs": "^0.19.24",
     "zone.js": "^0.6.6"
   }
 }
